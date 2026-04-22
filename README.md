@@ -1,4 +1,4 @@
-# 🔗 IntelChain — OSINT Evidence Sealing Tool
+#  IntelChain — OSINT Evidence Sealing Tool
 
 IntelChain is a lightweight forensic-oriented tool designed to preserve digital evidence integrity using SHA256 hashing and RFC3161 trusted timestamping.
 
@@ -6,7 +6,7 @@ Designed for investigators, analysts, and OSINT practitioners to ensure evidence
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ```bash
 python3 intelchain.py file.jpg
@@ -14,7 +14,7 @@ python3 intelchain.py file.jpg
 
 ---
 
-## 🎯 Why IntelChain
+##  Why IntelChain
 
 In OSINT investigations, preserving the integrity and timestamp of collected evidence is critical.
 
@@ -28,7 +28,7 @@ This ensures that collected evidence can be validated and trusted over time.
 
 ---
 
-## 🚀 Features
+##  Features
 
 * SHA256 hashing (file integrity)
 * RFC3161 trusted timestamping (FreeTSA)
@@ -38,7 +38,7 @@ This ensures that collected evidence can be validated and trusted over time.
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 Linux / WSL environment with:
 
@@ -48,7 +48,7 @@ Linux / WSL environment with:
 
 ---
 
-## ▶️ Usage
+##  Usage
 
 ```bash
 python3 intelchain.py <file> [url]
@@ -62,7 +62,7 @@ python3 gui.py
 
 ---
 
-## 📁 Output
+##  Output
 
 Evidence folder generated:
 
@@ -74,13 +74,13 @@ Evidence folder generated:
 
 ---
 
-## ⚠️ Notes
+##  Notes
 
 * Designed for Linux / WSL
 * Windows execution not supported natively
 
 ---
 
-## 👤 Author
+##  Author
 
 IntelChain
