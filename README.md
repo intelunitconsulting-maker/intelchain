@@ -34,9 +34,6 @@ request.tsq
 response.tsr
 tsa.crt
 ```
-<p align="center">
-  <img src="evidence_files_generated.png" alt="Generated evidence files" width="700"/>
-</p>
 
 ### Report Preview
 
@@ -62,10 +59,10 @@ Standard: RFC3161
 
 Result: VALID (cryptographic verification successful)
 
-## 📂 Generated Files
+## Generated Files
 
 <p align="center">
-  <img src="images/intelchain_output_files.png" alt="IntelChain Output" width="600"/>
+  <img src="evidence_files_generated.png" alt="Generated evidence files" width="700"/>
 </p>
 
 ```
