@@ -1,3 +1,10 @@
+## 📸 Interface
+
+<p align="center">
+  <img src="intelchain_gui.png" width="700">
+</p>
+
+
 #  IntelChain — OSINT Evidence Sealing Tool
 
 IntelChain is a lightweight forensic-oriented tool designed to preserve digital evidence integrity using SHA256 hashing and RFC3161 trusted timestamping.
