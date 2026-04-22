@@ -20,6 +20,51 @@ python3 intelchain.py file.jpg
 
 ---
 
+## Example Output
+
+### Evidence Package
+
+Generated files:
+
+```text id="e4l5tq"
+cacert.pem
+file.sha256
+report.txt
+report.sha256
+request.tsq
+response.tsr
+tsa.crt
+```
+
+---
+
+### Report Preview
+
+```text id="m8k2z1"
+=== INTELCHAIN REPORT ===
+
+Case ID: 2026-04-22_21-53-12
+Date: 2026-04-22 21:53:13
+ISO 8601: 2026-04-22T21:53:13
+
+=== Integrity ===
+
+SHA256: 07e7d54959686c70dfb48eb2c3c75ec4422d68477df4937e3b97446515ce9248
+
+=== Timestamp Authority ===
+
+TSA Status: Granted
+TSA Timestamp: Apr 22 19:53:14 2026 GMT
+Authority: freetsa.org
+Standard: RFC3161
+
+=== Verification ===
+
+Result: VALID (cryptographic verification successful)
+
+
+```
+
 ##  Why IntelChain
 
 In OSINT investigations, preserving the integrity and timestamp of collected evidence is critical.
