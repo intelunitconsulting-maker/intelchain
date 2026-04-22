@@ -35,8 +35,7 @@ response.tsr
 tsa.crt
 ```
 <p align="center">
-  <img src="evidence_files_generated.png" alt="Generated evidence files" width="700"/><br>
-  <em>Generated forensic artifacts: hashes, timestamps, and reports</em>
+  <img src="evidence_files_generated.png" alt="Generated evidence files" width="700"/>
 </p>
 ---
 
