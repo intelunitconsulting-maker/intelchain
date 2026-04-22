@@ -11,7 +11,7 @@ IntelChain follows a forensic-oriented methodology aligned with digital evidence
 Designed for investigators, analysts, and OSINT practitioners to ensure evidence integrity and verifiability.
 
 ---
-## 🖥️ IntelChain Interface
+## IntelChain Interface
 
 <p align="center">
   <img src="intelchain_gui.png" alt="IntelChain GUI" width="600"/>
@@ -24,7 +24,7 @@ python3 intelchain.py file.jpg
 ```
 ---
 
-## 🔗 Evidence Integrity Workflow
+## Evidence Integrity Workflow
 
 1. SHA256 hashing of the file
 2. RFC3161 timestamp request (TSA)
