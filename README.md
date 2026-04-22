@@ -7,9 +7,7 @@ Designed for investigators, analysts, and OSINT practitioners to ensure evidence
 ---
 ## 🖥️ IntelChain Interface
 
-<p align="center">
-  <img src="images/intelchain_gui.png" alt="IntelChain GUI" width="600"/>
-</p>
+<img src="intelchain_gui.png" alt="IntelChain GUI" width="600"/>
 
 ##  Quick Start
 
