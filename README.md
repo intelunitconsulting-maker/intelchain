@@ -104,9 +104,9 @@ This ensures that collected evidence can be validated and trusted over time.
 
 Linux / WSL environment with:
 
-* Python 3
-* OpenSSL
-* curl
+- Python 3 (3.8+ recommended)
+- OpenSSL (for RFC3161 timestamping)
+- curl (for TSA communication)
 
 ---
 
