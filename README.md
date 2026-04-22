@@ -62,6 +62,11 @@ Standard: RFC3161
 
 Result: VALID (cryptographic verification successful)
 
+## 📂 Generated Files
+
+<p align="center">
+  <img src="images/intelchain_output_files.png" alt="IntelChain Output" width="600"/>
+</p>
 
 ```
 
