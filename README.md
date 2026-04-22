@@ -94,8 +94,8 @@ This ensures that collected evidence can be validated and trusted over time.
 
 - SHA256 hashing (file and report integrity)
 - RFC3161 trusted timestamping (FreeTSA)
-- Structured forensic report generation (hash, timestamp, verification)
-- Evidence packaging (tsq, tsr, report, hashes)
+- Structured forensic report generation (integrity, timestamp, verification)
+- Evidence packaging (RFC3161 timestamp data, report, associated hashes)
 - Optional GUI (CustomTkinter)
 
 ---
