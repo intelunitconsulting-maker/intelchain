@@ -24,6 +24,7 @@ chmod +x install.sh
 ## Quick Start
 
 python3 intelchain.py file.jpg
+
 ---
 
 ## Evidence Integrity Workflow
