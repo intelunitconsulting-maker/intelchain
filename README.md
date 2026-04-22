@@ -6,7 +6,7 @@ Designed for investigators, analysts, and OSINT practitioners to ensure evidence
 
 ---
 
-## 📸 Interface
+## Interface
 
 <p align="center">
   <img src="intelchain_gui.png" width="700">
