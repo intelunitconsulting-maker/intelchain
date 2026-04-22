@@ -2,13 +2,9 @@
 
 IntelChain is a lightweight forensic-oriented tool designed to preserve digital evidence integrity using SHA256 hashing and RFC3161 trusted timestamping.
 
-Designed for investigators, analysts, and OSINT practitioners to ensure evidence integrity and verifiability.
+IntelChain follows a forensic-oriented methodology aligned with digital evidence handling practices, ensuring traceability, integrity, and verifiability.
 
-IntelChain is a lightweight forensic-oriented tool designed to preserve digital evidence integrity using SHA256 hashing and RFC3161 trusted timestamping.
-
-IntelChain follows a forensic-oriented methodology aligned with digital evidence handling practices.
-
-Designed for investigators, analysts, and OSINT practitioners to ensure evidence integrity and verifiability.
+Designed for investigators, analysts, and OSINT practitioners.
 
 ---
 ## IntelChain Interface
