@@ -5,11 +5,10 @@ IntelChain is a lightweight forensic-oriented tool designed to preserve digital 
 Designed for investigators, analysts, and OSINT practitioners to ensure evidence integrity and verifiability.
 
 ---
-
-## Interface
+## 📂 Generated Files
 
 <p align="center">
-  <img src="intelchain_gui.png" width="700">
+  <img src="images/evidence_files_generated.png" alt="Generated evidence files" width="600"/>
 </p>
 
 ##  Quick Start
