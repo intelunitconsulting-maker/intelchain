@@ -59,13 +59,12 @@ Standard: RFC3161
 
 Result: VALID (cryptographic verification successful)
 
+```
 ## Generated Files
 
 <p align="center">
   <img src="evidence_files_generated.png" alt="Generated evidence files" width="700"/>
 </p>
-
-```
 
 ##  Why IntelChain
 
