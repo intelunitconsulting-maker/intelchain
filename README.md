@@ -153,3 +153,69 @@ Evidence folder generated:
 ##  Author
 
 IntelChain
+
+🔐 Security & Privacy
+
+IntelChain is designed with a strict focus on local processing, data integrity, and transparency.
+
+🖥️ Local Execution
+
+IntelChain runs entirely on the user's system:
+
+No remote access to files or system data
+No background data collection
+No hidden processes or monitoring
+
+All operations are initiated explicitly by the user.
+
+📂 File Handling
+Only the file selected by the user is processed
+The original file is copied (not modified) into the evidence package
+No other files or directories are accessed
+🔑 Cryptographic Integrity
+
+IntelChain uses:
+
+SHA256 hashing for file integrity
+RFC3161 trusted timestamping via a public Timestamp Authority
+
+This ensures:
+
+Verifiable proof of file integrity
+Trusted proof of existence at a specific time
+🌐 Network Usage
+
+IntelChain performs limited and transparent network operations:
+
+Downloads public certificates (TSA & CA) if missing
+Sends a cryptographic hash only to the Timestamp Authority
+
+⚠️ Important:
+
+The original file is never transmitted
+Only a non-reversible hash is used for timestamping
+🧾 Evidence Transparency
+
+All generated elements are included in the evidence package:
+
+Original file copy
+Hash file (.sha256)
+Timestamp request (.tsq)
+Timestamp response (.tsr)
+Verification report
+
+This allows independent verification of:
+
+File integrity
+Timestamp authenticity
+🚫 No Data Collection
+
+IntelChain does not:
+
+collect personal data
+track user activity
+send analytics or telemetry
+⚖️ Disclaimer
+
+IntelChain does not determine the truth or authenticity of content.
+It ensures the integrity and timestamping of a file at a given moment.
