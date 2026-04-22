@@ -92,11 +92,11 @@ This ensures that collected evidence can be validated and trusted over time.
 
 ##  Features
 
-* SHA256 hashing (file integrity)
-* RFC3161 trusted timestamping (FreeTSA)
-* Structured forensic report generation
-* Evidence packaging (tsq, tsr, report)
-* Optional GUI (CustomTkinter)
+- SHA256 hashing (file and report integrity)
+- RFC3161 trusted timestamping (FreeTSA)
+- Structured forensic report generation (hash, timestamp, verification)
+- Evidence packaging (tsq, tsr, report, hashes)
+- Optional GUI (CustomTkinter)
 
 ---
 
