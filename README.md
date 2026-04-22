@@ -13,7 +13,7 @@ Designed for investigators, analysts, and OSINT practitioners.
   <img src="intelchain_gui.png" alt="IntelChain GUI" width="600"/>
 </p>
 
-## Installation & Quick Start
+## ⚙️ Installation & Quick Start
 
 ```bash
 git clone https://github.com/intelunitconsulting-maker/intelchain.git
@@ -24,14 +24,12 @@ chmod +x install.sh
 # Run IntelChain
 python3 intelchain.py file.jpg
 
----
+🔗 Evidence Integrity Workflow
 
-## Evidence Integrity Workflow
-
-1. SHA256 hashing of the file
-2. RFC3161 timestamp request (TSA)
-3. Timestamp response validation
-4. Forensic report generation
+SHA256 hashing of the file
+RFC3161 timestamp request (TSA)
+Timestamp response validation
+Forensic report generation
 
 ---
 
