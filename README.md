@@ -13,6 +13,13 @@ Designed for investigators, analysts, and OSINT practitioners.
   <img src="intelchain_gui.png" alt="IntelChain GUI" width="600"/>
 </p>
 
+## Installation
+
+```bash
+git clone https://github.com/your-username/intelchain.git
+cd intelchain
+chmod +x install.sh
+./install.sh
 ##  Quick Start
 
 ```bash
