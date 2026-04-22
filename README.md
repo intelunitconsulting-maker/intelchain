@@ -16,12 +16,12 @@ Designed for investigators, analysts, and OSINT practitioners.
 ## Installation
 
 ```bash
-git clone https://github.com/your-username/intelchain.git
+git clone https://github.com/intelunitconsulting-maker/intelchain.git
 cd intelchain
 chmod +x install.sh
 ./install.sh
 
-##  Quick Start
+## Quick Start
 
 ```bash
 python3 intelchain.py file.jpg
