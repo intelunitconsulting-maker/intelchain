@@ -37,7 +37,6 @@ tsa.crt
 <p align="center">
   <img src="evidence_files_generated.png" alt="Generated evidence files" width="700"/>
 </p>
----
 
 ### Report Preview
 
