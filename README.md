@@ -13,7 +13,7 @@ Designed for investigators, analysts, and OSINT practitioners.
   <img src="intelchain_gui.png" alt="IntelChain GUI" width="600"/>
 </p>
 
-## ⚙️ Installation
+## Installation & Quick Start
 
 ```bash
 git clone https://github.com/intelunitconsulting-maker/intelchain.git
@@ -21,9 +21,7 @@ cd intelchain
 chmod +x install.sh
 ./install.sh
 
-
-## Quick Start
-
+# Run IntelChain
 python3 intelchain.py file.jpg
 
 ---
