@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import sys
 import hashlib
 import os
@@ -121,7 +119,8 @@ def run_intelchain(file, url=None):
         report.write(f"Date: {now}\n")
         report.write(f"ISO 8601: {iso_now}\n")
         report.write(f"UTC Offset: {offset_fmt}\n")
-        report.write("Time Source: Local system clock\n")
+        report.write("Time Source: Local system clock (non-authoritative)\n")
+        report.write("Authoritative Time Source: RFC3161 TSA (freetsa.org)\n")
         report.write("Timezone: Local system time\n")
         report.write("Note: TSA timestamp is in UTC (GMT)\n\n")
 
@@ -151,7 +150,8 @@ def run_intelchain(file, url=None):
         report.write("SHA256 hashing + RFC3161 trusted timestamping\n\n")
 
         report.write("=== Chain of Custody ===\n\n")
-        report.write("Original file copied to evidence directory without modification.\n")
+        report.write("Original file copied to evidence directory.\n")
+        report.write("Integrity ensured via SHA256 hash prior to timestamping.\n")
         report.write("Hash generated before timestamp request.\n")
         report.write("Timestamp issued by trusted third-party authority.\n\n")
 
@@ -159,11 +159,11 @@ def run_intelchain(file, url=None):
         report.write("This package includes all files required to independently verify integrity and timestamp.\n\n")
 
         report.write("=== Verification ===\n\n")
-        report.write("Result: VALID (cryptographic verification successful)\n\n")
+        report.write("Result: VALID (TSA signature verified and hash matches original file)\n\n")
 
         report.write("=== Statement ===\n\n")
-        report.write("This report certifies that the associated file existed in this exact state ")
-        report.write("at the time indicated by the trusted timestamp authority (RFC3161).\n\n")
+        report.write("This report documents that the associated file was hashed and submitted to a trusted timestamp authority (RFC3161).\n")
+        report.write("The timestamp provides cryptographic evidence that the file was processed and timestamped at the indicated time by a trusted authority.\n\n")
 
         report.write("=== Report Integrity ===\n\n")
         report.write("SHA256 of this report stored in report.sha256\n")
