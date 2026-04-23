@@ -43,10 +43,10 @@ def run_intelchain(file, url=None):
     download_if_missing(TSA_CERT, TSA_URL)
     download_if_missing(CA_CERT, CA_URL)
 
-    timestamp_folder = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    now_dt = datetime.now()
+    timestamp_folder = now_dt.strftime("%Y-%m-%d_%H-%M-%S")
 
-    base_dir = os.getcwd()
-    case_dir = os.path.join(base_dir, "Evidence", timestamp_folder)
+    case_dir = os.path.join(os.getcwd(), "Evidence", timestamp_folder)
     os.makedirs(case_dir, exist_ok=True)
 
     shutil.copy(TSA_CERT, os.path.join(case_dir, TSA_CERT))
@@ -61,16 +61,20 @@ def run_intelchain(file, url=None):
     with open(os.path.join(case_dir, "file.sha256"), "w") as f:
         f.write(digest)
 
-    # TSA
-    subprocess.run(f'openssl ts -query -data "{file}" -sha256 -out "{case_dir}/request.tsq"', shell=True)
+    subprocess.run(
+        f'openssl ts -query -data "{file}" -sha256 -out "{case_dir}/request.tsq"',
+        shell=True,
+        check=True
+    )
 
     subprocess.run(
         f'curl -H "Content-Type: application/timestamp-query" '
         f'--data-binary @"{case_dir}/request.tsq" https://freetsa.org/tsr > "{case_dir}/response.tsr"',
-        shell=True
+        shell=True,
+        check=True
     )
 
-    subprocess.run(
+    verify = subprocess.run(
         f'openssl ts -verify -data "{file}" -in "{case_dir}/response.tsr" '
         f'-CAfile "{case_dir}/{CA_CERT}" -untrusted "{case_dir}/{TSA_CERT}"',
         shell=True
@@ -99,11 +103,9 @@ def run_intelchain(file, url=None):
     print(f"SHA256: {digest}")
     print(f"TSA Status: {timestamp_status}")
     print(f"TSA Timestamp: {timestamp_date}")
-    print("Verification: OK")
+    print("Verification:", "OK" if verify.returncode == 0 else "FAILED")
     print(f"Saved in: {case_dir}")
 
-    # REPORT COMPLET
-    now_dt = datetime.now()
     now = now_dt.strftime("%Y-%m-%d %H:%M:%S")
     iso_now = now_dt.replace(microsecond=0).isoformat()
     offset = now_dt.astimezone().strftime("%z")
@@ -159,7 +161,10 @@ def run_intelchain(file, url=None):
         report.write("This package includes all files required to independently verify integrity and timestamp.\n\n")
 
         report.write("=== Verification ===\n\n")
-        report.write("Result: VALID (TSA signature verified and hash matches original file)\n\n")
+        if verify.returncode == 0:
+            report.write("Result: VALID (TSA signature verified and hash matches original file)\n\n")
+        else:
+            report.write("Result: FAILED (timestamp verification error)\n\n")
 
         report.write("=== Statement ===\n\n")
         report.write("This report documents that the associated file was hashed and submitted to a trusted timestamp authority (RFC3161).\n")
