@@ -19,7 +19,6 @@ class IntelChainApp(ctk.CTk):
         self.title("IntelChain")
         self.geometry("900x600")
 
-        # 🔷 HEADER
         header = ctk.CTkFrame(self, fg_color="transparent")
         header.pack(pady=(70, 20))
 
@@ -47,11 +46,9 @@ class IntelChainApp(ctk.CTk):
             text_color="gray"
         ).pack()
 
-        # 🧠 CONTAINER
         container = ctk.CTkFrame(self, fg_color="transparent")
         container.pack(fill="both", expand=True)
 
-        # 🔥 SCROLLABLE FRAME
         scroll = ctk.CTkScrollableFrame(
             container,
             corner_radius=12,
@@ -59,7 +56,6 @@ class IntelChainApp(ctk.CTk):
         )
         scroll.pack(padx=40, pady=20, fill="both", expand=True)
 
-        # FILE
         ctk.CTkLabel(scroll, text="Select File", anchor="w").pack(
             padx=20, pady=(20, 5), fill="x"
         )
@@ -77,7 +73,6 @@ class IntelChainApp(ctk.CTk):
             command=self.select_file
         ).pack(side="right")
 
-        # URL
         ctk.CTkLabel(scroll, text="URL (optional)", anchor="w").pack(
             padx=20, pady=(15, 5), fill="x"
         )
@@ -85,33 +80,30 @@ class IntelChainApp(ctk.CTk):
         self.url_entry = ctk.CTkEntry(scroll)
         self.url_entry.pack(padx=20, fill="x")
 
-        # 🔥 BOUTON PRINCIPAL
         self.run_btn = ctk.CTkButton(
             scroll,
             text="Generate Evidence",
             height=55,
             font=("Arial", 16, "bold"),
-            fg_color="#2563eb",  # plus moderne
+            fg_color="#2563eb",
             hover_color="#1e40af",
             command=self.run_chain
         )
         self.run_btn.pack(pady=30, padx=20, fill="x")
 
-        # STATUS
         self.status = ctk.CTkLabel(scroll, text="", text_color="green")
         self.status.pack()
 
-        # OPEN BUTTON
         self.open_btn = ctk.CTkButton(
             scroll,
             text="Open Evidence",
-            fg_color="gray",
+            fg_color="#1f2937",
+            hover_color="#374151",
             state="disabled",
             command=self.open_folder
         )
         self.open_btn.pack(pady=20)
 
-    # 📂 FILE SELECT
     def select_file(self):
         file = filedialog.askopenfilename(initialdir="/")
 
@@ -119,7 +111,6 @@ class IntelChainApp(ctk.CTk):
             self.file_entry.delete(0, "end")
             self.file_entry.insert(0, file)
 
-    # 🚀 RUN
     def run_chain(self):
         global last_output
 
@@ -130,9 +121,12 @@ class IntelChainApp(ctk.CTk):
             self.status.configure(text="Invalid file", text_color="red")
             return
 
-        # 🔒 désactive boutons
         self.run_btn.configure(state="disabled")
-        self.open_btn.configure(state="disabled")
+
+        self.open_btn.configure(
+            state="disabled",
+            fg_color="#1f2937"
+        )
 
         self.status.configure(text="Processing evidence...", text_color="orange")
         self.update()
@@ -145,7 +139,11 @@ class IntelChainApp(ctk.CTk):
                 text_color="green"
             )
 
-            self.open_btn.configure(state="normal")
+            self.open_btn.configure(
+                state="normal",
+                fg_color="#2563eb",
+                hover_color="#1e40af"
+            )
 
         except Exception as e:
             self.status.configure(text=str(e), text_color="red")
@@ -154,7 +152,6 @@ class IntelChainApp(ctk.CTk):
         finally:
             self.run_btn.configure(state="normal")
 
-    # 📁 OPEN FOLDER
     def open_folder(self):
         global last_output
 
