@@ -96,10 +96,12 @@ class IntelChainApp(ctk.CTk):
         )
         self.open_btn.pack(pady=20)
 
+
     def select_file(self):
         top = ctk.CTkToplevel(self)
         top.title("Select File")
         top.geometry("600x400")
+
 
         current_path = "/"
 
