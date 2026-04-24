@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from tkinter import filedialog
+import tkinter as tk
 import subprocess
 import os
 
@@ -25,26 +25,18 @@ class IntelChainApp(ctk.CTk):
         title_frame = ctk.CTkFrame(header, fg_color="transparent")
         title_frame.pack()
 
-        ctk.CTkLabel(
-            title_frame,
-            text="Intel",
-            font=("Arial", 38, "bold"),
-            text_color="white"
-        ).pack(side="left")
+        ctk.CTkLabel(title_frame, text="Intel",
+                     font=("Arial", 38, "bold"),
+                     text_color="white").pack(side="left")
 
-        ctk.CTkLabel(
-            title_frame,
-            text="Chain",
-            font=("Arial", 38, "bold"),
-            text_color="#3b82f6"
-        ).pack(side="left")
+        ctk.CTkLabel(title_frame, text="Chain",
+                     font=("Arial", 38, "bold"),
+                     text_color="#3b82f6").pack(side="left")
 
-        ctk.CTkLabel(
-            header,
-            text="OSINT Evidence Sealing",
-            font=("Arial", 14),
-            text_color="gray"
-        ).pack()
+        ctk.CTkLabel(header,
+                     text="OSINT Evidence Sealing",
+                     font=("Arial", 14),
+                     text_color="gray").pack()
 
         container = ctk.CTkFrame(self, fg_color="transparent")
         container.pack(fill="both", expand=True)
@@ -105,11 +97,80 @@ class IntelChainApp(ctk.CTk):
         self.open_btn.pack(pady=20)
 
     def select_file(self):
-        file = filedialog.askopenfilename(initialdir="/")
+        top = ctk.CTkToplevel(self)
+        top.title("Select File")
+        top.geometry("600x400")
 
-        if file:
-            self.file_entry.delete(0, "end")
-            self.file_entry.insert(0, file)
+        current_path = "/"
+
+        path_label = ctk.CTkLabel(top, text=current_path)
+        path_label.pack(pady=5)
+
+        frame = ctk.CTkFrame(top)
+        frame.pack(fill="both", expand=True, padx=10, pady=10)
+
+        listbox = tk.Listbox(
+            frame,
+            bg="#1a1a1a",
+            fg="white",
+            selectbackground="#2563eb",
+            activestyle="none",
+            font=("Arial", 11)
+        )
+        listbox.pack(side="left", fill="both", expand=True)
+
+        scrollbar = tk.Scrollbar(frame, command=listbox.yview)
+        scrollbar.pack(side="right", fill="y")
+        listbox.config(yscrollcommand=scrollbar.set)
+
+        def refresh(path):
+            nonlocal current_path
+            current_path = path
+            path_label.configure(text=path)
+            listbox.delete(0, "end")
+
+            try:
+                files = os.listdir(path)
+
+                dirs = [f for f in files if os.path.isdir(os.path.join(path, f))]
+                files_only = [f for f in files if os.path.isfile(os.path.join(path, f))]
+
+                for d in sorted(dirs):
+                    listbox.insert("end", d)
+
+                for f in sorted(files_only):
+                    listbox.insert("end", f)
+
+            except Exception as e:
+                print(e)
+
+        def open_selected():
+            if not listbox.curselection():
+                return
+
+            selection = listbox.get(listbox.curselection())
+            full_path = os.path.join(current_path, selection)
+
+            if os.path.isdir(full_path):
+                refresh(full_path)
+            else:
+                self.file_entry.delete(0, "end")
+                self.file_entry.insert(0, full_path)
+                top.destroy()
+
+        def go_back():
+            parent = os.path.dirname(current_path)
+            refresh(parent)
+
+        listbox.bind("<Double-Button-1>", lambda e: open_selected())
+
+        btn_frame = ctk.CTkFrame(top, fg_color="transparent")
+        btn_frame.pack(pady=10)
+
+        ctk.CTkButton(btn_frame, text="⬅ Back", command=go_back).pack(side="left", padx=5)
+        ctk.CTkButton(btn_frame, text="Open", command=open_selected).pack(side="left", padx=5)
+
+        refresh(current_path)
 
     def run_chain(self):
         global last_output
@@ -122,11 +183,7 @@ class IntelChainApp(ctk.CTk):
             return
 
         self.run_btn.configure(state="disabled")
-
-        self.open_btn.configure(
-            state="disabled",
-            fg_color="#1f2937"
-        )
+        self.open_btn.configure(state="disabled", fg_color="#1f2937")
 
         self.status.configure(text="Processing evidence...", text_color="orange")
         self.update()
