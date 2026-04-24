@@ -6,6 +6,9 @@ from datetime import datetime
 import urllib.request
 import shutil
 
+from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
+
 TSA_CERT = "tsa.crt"
 CA_CERT = "cacert.pem"
 
@@ -19,12 +22,16 @@ banner = """
       ██║██║╚██╗██║   ██║   ██╔══╝  ██║     ██║     ██╔══██║██╔══██║██║██║╚██╗██║
       ██║██║ ╚████║   ██║   ███████╗███████╗╚██████╗██║  ██║██║  ██║██║██║ ╚████║
       ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+
+            ----------------- OSINT Evidence Sealing Tool -----------------
 """
+
 
 def download_if_missing(file, url):
     if not os.path.exists(file):
         print(f"Downloading {file}...")
         urllib.request.urlretrieve(url, file)
+
 
 def sha256(file_path):
     h = hashlib.sha256()
@@ -32,6 +39,7 @@ def sha256(file_path):
         for chunk in iter(lambda: f.read(4096), b""):
             h.update(chunk)
     return h.hexdigest()
+
 
 def run_intelchain(file, url=None):
 
@@ -111,6 +119,8 @@ def run_intelchain(file, url=None):
     offset = now_dt.astimezone().strftime("%z")
     offset_fmt = offset[:3] + ":" + offset[3:]
 
+    size = os.path.getsize(file)
+
     report_path = os.path.join(case_dir, "report.txt")
 
     with open(report_path, "w") as report:
@@ -128,6 +138,7 @@ def run_intelchain(file, url=None):
 
         report.write("=== File Information ===\n\n")
         report.write(f"File Name: {filename}\n")
+        report.write(f"File Size: {size} bytes\n")
         report.write("Location: Included in evidence package\n\n")
 
         if url:
@@ -139,6 +150,12 @@ def run_intelchain(file, url=None):
         report.write("=== Integrity ===\n\n")
         report.write(f"SHA256: {digest}\n")
         report.write("Hash computed prior to timestamp request.\n\n")
+
+        report.write("=== Verification Instructions ===\n\n")
+        report.write("1. Recompute SHA256 hash of the original file\n")
+        report.write("2. Compare with file.sha256\n")
+        report.write("3. Verify timestamp using OpenSSL:\n")
+        report.write("   openssl ts -verify -data <file> -in response.tsr -CAfile cacert.pem -untrusted tsa.crt\n\n")
 
         report.write("=== Timestamp Authority ===\n\n")
         report.write(f"TSA Status: {timestamp_status}\n")
@@ -152,13 +169,24 @@ def run_intelchain(file, url=None):
         report.write("SHA256 hashing + RFC3161 trusted timestamping\n\n")
 
         report.write("=== Chain of Custody ===\n\n")
-        report.write("Original file copied to evidence directory.\n")
-        report.write("Integrity ensured via SHA256 hash prior to timestamping.\n")
-        report.write("Hash generated before timestamp request.\n")
-        report.write("Timestamp issued by trusted third-party authority.\n\n")
+        report.write("The original file was copied into the evidence directory without modification.\n")
+        report.write("A SHA256 hash was computed prior to timestamp submission.\n")
+        report.write("The hash was submitted to a trusted timestamp authority (RFC3161).\n")
+        report.write("The timestamp response was received and cryptographically verified.\n")
+        report.write("All generated artifacts are stored within this evidence package.\n\n")
 
         report.write("=== Evidence Package ===\n\n")
-        report.write("This package includes all files required to independently verify integrity and timestamp.\n\n")
+        report.write("The following files are included for independent verification:\n\n")
+        report.write("- Original file copy\n")
+        report.write("- file.sha256\n")
+        report.write("- request.tsq\n")
+        report.write("- response.tsr\n")
+        report.write("- report.txt\n")
+        report.write("- report.txt.sha256\n")
+        report.write("- report.pdf\n")
+        report.write("- report.pdf.sha256\n")
+        report.write("- evidence archive (.zip)\n")
+        report.write("- package.sha256\n\n")
 
         report.write("=== Verification ===\n\n")
         if verify.returncode == 0:
@@ -167,19 +195,74 @@ def run_intelchain(file, url=None):
             report.write("Result: FAILED (timestamp verification error)\n\n")
 
         report.write("=== Statement ===\n\n")
-        report.write("This report documents that the associated file was hashed and submitted to a trusted timestamp authority (RFC3161).\n")
-        report.write("The timestamp provides cryptographic evidence that the file was processed and timestamped at the indicated time by a trusted authority.\n\n")
+        report.write("This document constitutes a verifiable forensic record of the digital evidence processing.\n")
+        report.write("The associated file was hashed using SHA256 prior to submission to a trusted timestamp authority (RFC3161).\n")
+        report.write("The timestamp provides cryptographic proof that the hash of the file existed at the specified time.\n")
+        report.write("Any alteration of the original file would result in a different hash, invalidating this record.\n\n")
 
         report.write("=== Report Integrity ===\n\n")
-        report.write("SHA256 of this report stored in report.sha256\n")
+        report.write("SHA256 of this report stored in report.txt.sha256\n")
+        report.write("SHA256 of PDF stored in report.pdf.sha256\n")
 
     report_hash = sha256(report_path)
 
-    with open(os.path.join(case_dir, "report.sha256"), "w") as f:
+    with open(os.path.join(case_dir, "report.txt.sha256"), "w") as f:
         f.write(report_hash)
 
     print(f"Report SHA256: {report_hash}")
     print(f"Report generated: {report_path}")
+
+    pdf_path = os.path.join(case_dir, "report.pdf")
+
+    styles = getSampleStyleSheet()
+    doc = SimpleDocTemplate(
+        pdf_path,
+        author="IntelChain Tool",
+        title="IntelChain Report"
+    )
+
+    title_style = styles["Heading1"]
+    section_style = styles["Heading2"]
+    text_style = styles["Normal"]
+
+    content = []
+
+    with open(report_path, "r") as f:
+        for line in f:
+            line = line.strip()
+
+            if line.startswith("=== INTELCHAIN REPORT"):
+                content.append(Paragraph(line, title_style))
+
+            elif line.startswith("==="):
+                content.append(Paragraph(line, section_style))
+
+            elif line == "":
+                content.append(Paragraph(" ", text_style))
+
+            else:
+                content.append(Paragraph(line, text_style))
+
+    doc.build(content)
+
+    print(f"PDF generated: {pdf_path}")
+
+    pdf_hash = sha256(pdf_path)
+
+    with open(os.path.join(case_dir, "report.pdf.sha256"), "w") as f:
+        f.write(pdf_hash)
+
+    print(f"PDF SHA256: {pdf_hash}")
+
+    zip_path = shutil.make_archive(case_dir, 'zip', case_dir)
+
+    zip_hash = sha256(zip_path)
+
+    with open(os.path.join(case_dir, "package.sha256"), "w") as f:
+        f.write(zip_hash)
+
+    print(f"Evidence ZIP: {zip_path}")
+    print(f"ZIP SHA256: {zip_hash}")
 
     return case_dir
 
