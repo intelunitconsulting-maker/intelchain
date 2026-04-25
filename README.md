@@ -10,11 +10,9 @@ Designed for **investigators, analysts, researchers, and OSINT practitioners**.
 
 ## IntelChain Interface
 
-```html
 <p align="center">
   <img src="intelchain_gui.png" alt="IntelChain GUI" width="700"/>
 </p>
-```
 
 ---
 
@@ -35,11 +33,15 @@ chmod +x install.sh
 
 ### GUI Mode (recommended)
 
+Launch IntelChain graphical interface:
+
 ```bash
 python3 gui.py
 ```
 
 ### CLI Mode
+
+Run directly from terminal:
 
 ```bash
 python3 intelchain.py <file>
@@ -178,19 +180,15 @@ package.sha256
 
 ## Generated Files
 
-```html
 <p align="center">
   <img src="evidence_files_generated.png" alt="Generated evidence files" width="750"/>
 </p>
-```
 
 ## Report Preview
 
-```html
 <p align="center">
   <img src="report_preview.png" alt="IntelChain Report Preview" width="750"/>
 </p>
-```
 
 ---
 
