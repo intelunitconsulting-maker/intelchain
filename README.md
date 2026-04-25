@@ -178,20 +178,6 @@ tsa.crt
 package.sha256
 ```
 
-## Generated Files
-
-<p align="center">
-  <img src="evidence_files_generated.png" alt="Generated evidence files" width="750"/>
-</p>
-
-## Report Preview
-
-<p align="center">
-  <img src="report_preview.png" alt="IntelChain Report Preview" width="750"/>
-</p>
-
----
-
 ## Why IntelChain
 
 In OSINT investigations, preserving the integrity and timestamp of collected evidence is critical.
