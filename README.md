@@ -1,14 +1,25 @@
 # IntelChain | OSINT Evidence Sealing Tool
 
-IntelChain is a lightweight forensic-oriented tool designed to preserve digital evidence integrity using **SHA256 hashing** and **RFC3161 trusted timestamping**.
+IntelChain is a lightweight forensic-oriented tool designed to preserve digital evidence integrity using SHA256 hashing and RFC3161 trusted timestamping.
 
-IntelChain follows a methodology aligned with digital evidence handling practices, supporting **traceability, integrity, and independent verification**.
+IntelChain follows a methodology aligned with digital evidence handling practices, supporting:
 
-Designed for **investigators, analysts, researchers, and OSINT practitioners**.
+- Traceability
+- Integrity preservation
+- Proof of existence
+- Independent verification
+
+Designed for:
+
+- Investigators
+- Analysts
+- Researchers
+- OSINT practitioners
+- Digital evidence workflows
 
 ---
 
-## IntelChain Interface
+# IntelChain Interface
 
 <p align="center">
   <img src="intelchain_gui.png" alt="IntelChain GUI" width="700"/>
@@ -16,30 +27,30 @@ Designed for **investigators, analysts, researchers, and OSINT practitioners**.
 
 ---
 
-## Installation
+# Installation
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/intelunitconsulting-maker/intelchain.git
 cd intelchain
-chmod +x install.sh
-./install.sh
 ```
 
 ---
 
-## Run IntelChain
+# Run IntelChain
 
-### GUI Mode (recommended)
+## GUI Mode (recommended)
 
-Launch IntelChain graphical interface:
+Launch graphical interface:
 
 ```bash
 python3 gui.py
 ```
 
-### CLI Mode
+---
+
+## CLI Mode
 
 Run directly from terminal:
 
@@ -69,53 +80,71 @@ This adds the source reference to the verification report.
 
 ---
 
-## Requirements
+# Requirements
 
-IntelChain is designed for **Linux / WSL**.
+IntelChain is designed primarily for:
 
-### 1) Update system packages
+- Linux
+- WSL
+- Debian-based systems
+
+---
+
+## 1) Update system packages
 
 ```bash
 sudo apt update
 sudo apt upgrade -y
 ```
 
-### 2) Install Python 3
+---
+
+## 2) Install Python 3
 
 ```bash
 sudo apt install -y python3
 python3 --version
 ```
 
-### 3) Install pip
+---
+
+## 3) Install pip
 
 ```bash
 sudo apt install -y python3-pip
 pip3 --version
 ```
 
-### 4) Install Tkinter (required for GUI)
+---
+
+## 4) Install Tkinter (GUI requirement)
 
 ```bash
 sudo apt install -y python3-tk
 python3 -c "import tkinter; print('tkinter OK')"
 ```
 
-### 5) Install OpenSSL
+---
+
+## 5) Install OpenSSL
 
 ```bash
 sudo apt install -y openssl
 openssl version
 ```
 
-### 6) Install curl
+---
+
+## 6) Install curl
 
 ```bash
 sudo apt install -y curl
 curl --version
 ```
 
-### 7) Install Python dependencies
+---
+
+## 7) Install Python dependencies
 
 Install CustomTkinter:
 
@@ -133,24 +162,24 @@ python3 -c "import reportlab; print('reportlab OK')"
 
 ---
 
-## Core Principles
+# Core Principles
 
-* Integrity
-* Trusted timestamping
-* Traceability
-* Independent verification
-* Local-first processing
-* Transparent evidence packaging
+- Integrity
+- Trusted timestamping
+- Traceability
+- Independent verification
+- Local-first processing
+- Transparent evidence packaging
 
 ---
 
-## Evidence Integrity Workflow
+# Evidence Integrity Workflow
 
 1. Original file copy
 2. SHA256 hashing
 3. RFC3161 timestamp request generation (`request.tsq`)
 4. Trusted timestamp response retrieval (`response.tsr`)
-5. Cryptographic verification
+5. Timestamp response parsing
 6. TXT report generation
 7. PDF report generation
 8. ZIP evidence archive generation
@@ -158,9 +187,9 @@ python3 -c "import reportlab; print('reportlab OK')"
 
 ---
 
-## Example Output
+# Example Output
 
-### Evidence Package
+## Evidence Package
 
 Generated files:
 
@@ -173,108 +202,143 @@ report.txt
 report.txt.sha256
 report.pdf
 report.pdf.sha256
-cacert.pem
-tsa.crt
 package.sha256
 ```
 
-## Why IntelChain
+---
+
+# Why IntelChain
 
 In OSINT investigations, preserving the integrity and timestamp of collected evidence is critical.
 
 IntelChain provides a simple and reliable way to:
 
-* Prove data integrity (**SHA256**)
-* Establish trusted proof of existence (**RFC3161**)
-* Generate structured verification reports
-* Package all supporting verification artifacts
+- Prove data integrity (SHA256)
+- Establish trusted proof of existence (RFC3161)
+- Generate structured verification reports
+- Package all supporting verification artifacts
 
-This ensures collected evidence remains **verifiable, traceable, and independently reviewable over time**.
+This ensures collected evidence remains:
 
----
-
-## Features
-
-* SHA256 hashing
-* RFC3161 trusted timestamping (FreeTSA)
-* Cryptographic timestamp verification
-* TXT report generation
-* PDF report generation
-* Report hashing
-* ZIP evidence packaging
-* Package hashing
-* GUI mode (CustomTkinter)
-* CLI mode
-* Optional source URL reference
-* Automatic TSA / CA certificate retrieval
+- Verifiable
+- Traceable
+- Independently reviewable over time
 
 ---
 
-## Supported File Types
+# Features
 
-IntelChain supports **virtually any local file readable by the system**, including:
-
-* Images
-* Documents
-* PDFs
-* Audio files
-* Video files
-* Archives
-* Database files
-* Disk images
-* Logs / exported datasets
-* Binary files
-* Any readable local file
+- SHA256 hashing
+- RFC3161 trusted timestamping (Sectigo TSA)
+- TXT report generation
+- PDF report generation
+- Report hashing
+- ZIP evidence packaging
+- Package hashing
+- GUI mode (CustomTkinter)
+- CLI mode
+- Optional source URL reference
+- Local-first architecture
 
 ---
 
-## Security & Privacy
+# Supported File Types
 
-IntelChain is designed with a strict focus on **local processing, transparency, and cryptographic integrity**.
+IntelChain supports virtually any readable local file, including:
 
-### Local Execution
+- Images
+- Documents
+- PDFs
+- Audio files
+- Video files
+- Archives
+- Database files
+- Disk images
+- Logs / exported datasets
+- Binary files
+- Any readable local file
 
-* No remote file access
-* No telemetry
-* No analytics
-* No tracking
-* No hidden monitoring
+---
+
+# Security & Privacy
+
+IntelChain is designed with a strict focus on:
+
+- Local processing
+- Transparency
+- Cryptographic integrity
+
+---
+
+## Local Execution
+
+- No remote file access
+- No telemetry
+- No analytics
+- No tracking
+- No hidden monitoring
 
 All operations are initiated explicitly by the user.
 
-### File Handling
+---
 
-* Only the selected file is processed
-* The original file is copied, never modified
-* No unrelated files are accessed
-* Evidence package remains local
+## File Handling
 
-### Network Usage
-
-IntelChain performs limited and transparent network operations only to:
-
-* Download TSA certificate (`tsa.crt`) if missing
-* Download CA certificate (`cacert.pem`) if missing
-* Send **only a SHA256 digest** to the Timestamp Authority
-
-**Important:**
-
-* The original file is never transmitted
-* Only a non-reversible cryptographic hash is sent
-
-### No Data Collection
-
-IntelChain does **not**:
-
-* collect personal data
-* inspect unrelated files
-* upload original evidence
-* track usage
+- Only the selected file is processed
+- The original file is copied, never modified
+- No unrelated files are accessed
+- Evidence package remains local
 
 ---
 
-## Disclaimer
+## Network Usage
+
+IntelChain performs limited and transparent network operations only to:
+
+- Send a SHA256 digest to the Timestamp Authority
+
+Important:
+
+- The original file is never transmitted
+- Only a non-reversible cryptographic hash is sent
+- No evidence content leaves the local machine
+
+---
+
+## Timestamp Authority
+
+Current TSA provider:
+
+- Sectigo RFC3161 TSA
+
+Future versions may include:
+
+- Multiple TSA fallback servers
+- Automatic failover
+- Enhanced timestamp verification
+
+---
+
+## No Data Collection
+
+IntelChain does NOT:
+
+- collect personal data
+- inspect unrelated files
+- upload original evidence
+- track usage
+- transmit evidence content
+
+---
+
+# Disclaimer
 
 IntelChain does not determine the truth or authenticity of content.
 
-It helps preserve the **integrity, traceability, and proof of existence** of a digital file at a specific point in time.
+It helps preserve:
+
+- integrity
+- traceability
+- proof of existence
+
+of a digital file at a specific point in time.
