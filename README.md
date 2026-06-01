@@ -1,10 +1,6 @@
 # IntelChain Community v1.0
 
 <p align="center">
-  <img src="intelchain_community_v1.png" alt="IntelChain Community Interface" width="1000"/>
-</p>
-
-<p align="center">
   <strong>OSINT Evidence Sealing Platform</strong><br>
   SHA-256 Integrity Verification • RFC3161 Trusted Timestamping • Local-First Evidence Preservation
 </p>
