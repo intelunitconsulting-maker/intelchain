@@ -1,8 +1,6 @@
 # IntelChain Community v1.0
 
-<p align="center">
-  <img src="intelchain_gui.png" alt="IntelChain Interface" width="900"/>
-</p>
+
 
 ---
 
