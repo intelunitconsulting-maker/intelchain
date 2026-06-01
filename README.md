@@ -1,344 +1,196 @@
-# IntelChain | OSINT Evidence Sealing Tool
-
-IntelChain is a lightweight forensic-oriented tool designed to preserve digital evidence integrity using SHA256 hashing and RFC3161 trusted timestamping.
-
-IntelChain follows a methodology aligned with digital evidence handling practices, supporting:
-
-- Traceability
-- Integrity preservation
-- Proof of existence
-- Independent verification
-
-Designed for:
-
-- Investigators
-- Analysts
-- Researchers
-- OSINT practitioners
-- Digital evidence workflows
-
----
-
-# IntelChain Interface
+# IntelChain Community v1.0
 
 <p align="center">
-  <img src="intelchain_gui.png" alt="IntelChain GUI" width="700"/>
+  <img src="intelchain_gui.png" alt="IntelChain Interface" width="900"/>
 </p>
 
 ---
 
-# Installation
+## OSINT Evidence Sealing Platform
 
-Clone the repository:
+IntelChain Community is a forensic-oriented digital evidence sealing platform designed to preserve integrity, traceability and proof of existence using SHA-256 cryptographic hashing and RFC3161 trusted timestamping.
 
-```bash
-git clone https://github.com/intelunitconsulting-maker/intelchain.git
-cd intelchain
-```
+Built for:
 
----
+* OSINT investigations
+* Digital evidence preservation
+* Research workflows
+* Incident documentation
+* Independent verification
 
-# Run IntelChain
+IntelChain follows a strict local-first approach:
 
-## GUI Mode (recommended)
-
-Launch graphical interface:
-
-```bash
-python3 gui.py
-```
-
----
-
-## CLI Mode
-
-Run directly from terminal:
-
-```bash
-python3 intelchain.py <file>
-```
-
-Examples:
-
-```bash
-python3 intelchain.py screenshot.jpg
-python3 intelchain.py report.pdf
-python3 intelchain.py archive.zip
-python3 intelchain.py evidence.mp4
-python3 intelchain.py export.json
-python3 intelchain.py database.db
-python3 intelchain.py forensic_image.dd
-```
-
-Optional source URL:
-
-```bash
-python3 intelchain.py screenshot.jpg "https://example.com/source"
-```
-
-This adds the source reference to the verification report.
-
----
-
-# Requirements
-
-IntelChain is designed primarily for:
-
-- Linux
-- WSL
-- Debian-based systems
-
----
-
-## 1) Update system packages
-
-```bash
-sudo apt update
-sudo apt upgrade -y
-```
-
----
-
-## 2) Install Python 3
-
-```bash
-sudo apt install -y python3
-python3 --version
-```
-
----
-
-## 3) Install pip
-
-```bash
-sudo apt install -y python3-pip
-pip3 --version
-```
-
----
-
-## 4) Install Tkinter (GUI requirement)
-
-```bash
-sudo apt install -y python3-tk
-python3 -c "import tkinter; print('tkinter OK')"
-```
-
----
-
-## 5) Install OpenSSL
-
-```bash
-sudo apt install -y openssl
-openssl version
-```
-
----
-
-## 6) Install curl
-
-```bash
-sudo apt install -y curl
-curl --version
-```
-
----
-
-## 7) Install Python dependencies
-
-Install CustomTkinter:
-
-```bash
-pip3 install customtkinter
-python3 -c "import customtkinter; print('customtkinter OK')"
-```
-
-Install ReportLab:
-
-```bash
-pip3 install reportlab
-python3 -c "import reportlab; print('reportlab OK')"
-```
-
----
-
-# Core Principles
-
-- Integrity
-- Trusted timestamping
-- Traceability
-- Independent verification
-- Local-first processing
-- Transparent evidence packaging
-
----
-
-# Evidence Integrity Workflow
-
-1. Original file copy
-2. SHA256 hashing
-3. RFC3161 timestamp request generation (`request.tsq`)
-4. Trusted timestamp response retrieval (`response.tsr`)
-5. Timestamp response parsing
-6. TXT report generation
-7. PDF report generation
-8. ZIP evidence archive generation
-9. Package integrity hashing (`package.sha256`)
-
----
-
-# Example Output
-
-## Evidence Package
-
-Generated files:
-
-```text
-source_file.ext
-file.sha256
-request.tsq
-response.tsr
-report.txt
-report.txt.sha256
-report.pdf
-report.pdf.sha256
-package.sha256
-```
-
----
-
-# Why IntelChain
-
-In OSINT investigations, preserving the integrity and timestamp of collected evidence is critical.
-
-IntelChain provides a simple and reliable way to:
-
-- Prove data integrity (SHA256)
-- Establish trusted proof of existence (RFC3161)
-- Generate structured verification reports
-- Package all supporting verification artifacts
-
-This ensures collected evidence remains:
-
-- Verifiable
-- Traceable
-- Independently reviewable over time
+* No telemetry
+* No analytics
+* No cloud upload
+* No hidden monitoring
 
 ---
 
 # Features
 
-- SHA256 hashing
-- RFC3161 trusted timestamping (Sectigo TSA)
-- TXT report generation
-- PDF report generation
-- Report hashing
-- ZIP evidence packaging
-- Package hashing
-- GUI mode (CustomTkinter)
-- CLI mode
-- Optional source URL reference
-- Local-first architecture
+* SHA-256 integrity verification
+* RFC3161 cryptographic timestamping
+* Professional PDF forensic reports
+* ZIP evidence packaging
+* Package integrity hashing
+* Chain of custody generation
+* Local evidence preservation
+* Source URL integration
+* Evidence manifest generation
+* Community Edition interface
 
 ---
 
-# Supported File Types
+# Community Edition
 
-IntelChain supports virtually any readable local file, including:
+IntelChain Community provides a lightweight and accessible environment for evidence preservation workflows while keeping all operations fully local.
 
-- Images
-- Documents
-- PDFs
-- Audio files
-- Video files
-- Archives
-- Database files
-- Disk images
-- Logs / exported datasets
-- Binary files
-- Any readable local file
+Current version:
+
+```text
+IntelChain Community v1.0
+```
+
+Compatibility:
+
+* Windows 10 / 11 (64-bit)
+
+---
+
+# Core Principles
+
+IntelChain is built around:
+
+* Integrity preservation
+* Proof of existence
+* Independent verification
+* Transparent evidence packaging
+* Traceability
+* Local-first processing
+
+---
+
+# Evidence Workflow
+
+IntelChain automatically performs:
+
+1. Evidence acquisition
+2. SHA-256 hashing
+3. RFC3161 timestamp request generation
+4. Trusted timestamp retrieval
+5. Integrity verification
+6. PDF forensic report generation
+7. ZIP evidence archive creation
+8. Package integrity sealing
+
+---
+
+# Generated Artifacts
+
+IntelChain may generate:
+
+```text
+evidence/
+timestamp/
+reports/
+manifest/
+integrity/
+source/
+```
+
+Including:
+
+* SHA-256 digests
+* RFC3161 timestamp tokens
+* Verification reports
+* Evidence manifests
+* Integrity packages
 
 ---
 
 # Security & Privacy
 
-IntelChain is designed with a strict focus on:
+IntelChain is designed with strict operational transparency.
 
-- Local processing
-- Transparency
-- Cryptographic integrity
+## Local Processing
 
----
-
-## Local Execution
-
-- No remote file access
-- No telemetry
-- No analytics
-- No tracking
-- No hidden monitoring
-
-All operations are initiated explicitly by the user.
-
----
-
-## File Handling
-
-- Only the selected file is processed
-- The original file is copied, never modified
-- No unrelated files are accessed
-- Evidence package remains local
-
----
+* No evidence uploaded
+* No remote file storage
+* No hidden synchronization
+* No telemetry collection
 
 ## Network Usage
 
-IntelChain performs limited and transparent network operations only to:
-
-- Send a SHA256 digest to the Timestamp Authority
+IntelChain only communicates with the RFC3161 Timestamp Authority to submit a cryptographic digest.
 
 Important:
 
-- The original file is never transmitted
-- Only a non-reversible cryptographic hash is sent
-- No evidence content leaves the local machine
+* The original file is NEVER transmitted
+* Only a non-reversible SHA-256 hash is sent
+* Evidence content remains local
 
 ---
 
-## Timestamp Authority
+# Timestamp Authority
 
-Current TSA provider:
+Current provider:
 
-- Sectigo RFC3161 TSA
-
-Future versions may include:
-
-- Multiple TSA fallback servers
-- Automatic failover
-- Enhanced timestamp verification
+* Sectigo RFC3161 TSA
 
 ---
 
-## No Data Collection
+# Supported Evidence Types
 
-IntelChain does NOT:
+IntelChain supports virtually any readable local file:
 
-- collect personal data
-- inspect unrelated files
-- upload original evidence
-- track usage
-- transmit evidence content
+* Images
+* PDFs
+* Documents
+* Archives
+* Databases
+* Logs
+* Videos
+* Audio files
+* Disk images
+* Exported datasets
+* Binary files
+
+---
+
+# Why IntelChain
+
+Digital evidence must remain:
+
+* verifiable
+* traceable
+* independently reviewable over time
+
+IntelChain helps preserve:
+
+* integrity
+* timestamp authenticity
+* evidence consistency
+* forensic traceability
+
+through standardized cryptographic verification workflows.
+
+---
+
+# Download
+
+Official releases are available in the GitHub Releases section.
 
 ---
 
 # Disclaimer
 
-IntelChain does not determine the truth or authenticity of content.
+IntelChain does not determine the authenticity or truthfulness of content.
 
-It helps preserve:
+The platform preserves:
 
-- integrity
-- traceability
-- proof of existence
+* integrity
+* proof of existence
+* traceability
 
 of a digital file at a specific point in time.
