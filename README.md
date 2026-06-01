@@ -1,10 +1,23 @@
 # IntelChain Community v1.0
 
+<p align="center">
+  <img src="intelchain_community_v1.png" alt="IntelChain Community Interface" width="1000"/>
+</p>
 
+<p align="center">
+  <strong>OSINT Evidence Sealing Platform</strong><br>
+  SHA-256 Integrity Verification • RFC3161 Trusted Timestamping • Local-First Evidence Preservation
+</p>
 
 ---
 
-## OSINT Evidence Sealing Platform
+# Official Website
+
+https://intelunitconsulting.com/intelchain/
+
+---
+
+# Overview
 
 IntelChain Community is a forensic-oriented digital evidence sealing platform designed to preserve integrity, traceability and proof of existence using SHA-256 cryptographic hashing and RFC3161 trusted timestamping.
 
@@ -16,7 +29,7 @@ Built for:
 * Incident documentation
 * Independent verification
 
-IntelChain follows a strict local-first approach:
+IntelChain follows a strict local-first architecture:
 
 * No telemetry
 * No analytics
@@ -33,9 +46,9 @@ IntelChain follows a strict local-first approach:
 * ZIP evidence packaging
 * Package integrity hashing
 * Chain of custody generation
-* Local evidence preservation
-* Source URL integration
 * Evidence manifest generation
+* Source URL integration
+* Local evidence preservation
 * Community Edition interface
 
 ---
@@ -79,7 +92,7 @@ IntelChain automatically performs:
 4. Trusted timestamp retrieval
 5. Integrity verification
 6. PDF forensic report generation
-7. ZIP evidence archive creation
+7. ZIP evidence archive generation
 8. Package integrity sealing
 
 ---
@@ -179,6 +192,12 @@ through standardized cryptographic verification workflows.
 
 Official releases are available in the GitHub Releases section.
 
+Latest release:
+
+```text
+IntelChain Community v1.0
+```
+
 ---
 
 # Disclaimer
@@ -192,3 +211,9 @@ The platform preserves:
 * traceability
 
 of a digital file at a specific point in time.
+
+---
+
+<p align="center">
+  IntelChain Community • Intel Unit Consulting
+</p>
