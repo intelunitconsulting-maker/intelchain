@@ -114,7 +114,7 @@ IntelChain is designed around the following principles:
 
 IntelChain automatically performs the following operations:
 
-1. Evidence acquisition
+1. Evidence import
 2. SHA-256 hash calculation
 3. RFC3161 timestamp request generation
 4. Submission of the digest to the Timestamp Authority
@@ -212,6 +212,14 @@ IntelChain supports virtually any readable local file, including:
 * Binary files
 
 ---
+
+# Standards
+
+IntelChain relies on established cryptographic standards and practices, including:
+
+* SHA-256 (FIPS 180-4)
+* RFC3161 Trusted Timestamping
+* X.509 certificate validation
 
 # Verification
 
