@@ -2,7 +2,7 @@
 
 # IntelChain Community v1.0
 
-### OSINT Evidence Sealing Platform
+### Forensic Evidence Preservation Platform
 
 **SHA-256 Integrity Verification • RFC3161 Trusted Timestamping • Local-First Evidence Preservation**
 
