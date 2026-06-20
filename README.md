@@ -6,6 +6,15 @@
 
 **SHA-256 Integrity Verification • RFC 3161 Trusted Timestamping • Local-First Evidence Preservation**
 
+![Platform](https://img.shields.io/badge/platform-Windows%2010%20%2F%2011-0b1220?style=flat-square)
+![Edition](https://img.shields.io/badge/edition-Community-2f6fed?style=flat-square)
+![RFC3161](https://img.shields.io/badge/timestamping-RFC%203161-caa14b?style=flat-square)
+![SHA256](https://img.shields.io/badge/hash-SHA--256-caa14b?style=flat-square)
+![Local First](https://img.shields.io/badge/architecture-local--first-1f9d55?style=flat-square)
+![No Telemetry](https://img.shields.io/badge/telemetry-none-1f9d55?style=flat-square)
+![OpenSSL](https://img.shields.io/badge/crypto-OpenSSL-grey?style=flat-square)
+![License](https://img.shields.io/badge/license-Community%20EULA-grey?style=flat-square)
+
 [Website](https://intelunitconsulting.com/intelchain/) • [User Guide (PDF)](#documentation) • [Download](#download) • [License](#license)
 
 </div>
@@ -51,7 +60,7 @@ IntelChain follows a strict **local-first architecture**:
 * Timestamp token verification
 * Professional PDF forensic reports
 * Evidence manifest generation
-* Chain of custody documentation
+* Integrity chain documentation
 * ZIP evidence packaging
 * Package integrity hashing
 * Source URL integration
@@ -84,6 +93,22 @@ The guide explains, in plain language:
 
 ---
 
+# Screenshots
+
+<div align="center">
+
+| Application | Browser Extension |
+|---|---|
+| <img src="docs/screenshots/intelchain-gui.png" width="380" alt="IntelChain Community interface"> | <img src="docs/screenshots/intelchain-extension.png" width="380" alt="IntelChain Capture browser extension"> |
+| **Generated Evidence Package** | **Verification** |
+| <img src="docs/screenshots/intelchain-package.png" width="380" alt="Generated evidence package contents"> | <img src="docs/screenshots/intelchain-verify.png" width="380" alt="Forensic verification result"> |
+
+</div>
+
+> Screenshots are illustrative. The application interface and generated package structure may evolve between releases.
+
+---
+
 # Community Edition
 
 IntelChain Community provides a lightweight environment for evidence preservation workflows while maintaining complete local control over processed evidence.
@@ -103,26 +128,10 @@ Compatibility:
 
 # Prerequisites
 
-IntelChain Community includes the OpenSSL components required to support RFC 3161 timestamping operations. No external installation is required — OpenSSL and curl are embedded in the installer.
+* Windows 10/11 (64-bit)
+* No external installation required — OpenSSL and curl are bundled with the installer
 
-OpenSSL is used exclusively for:
-
-* SHA-256 digest processing
-* RFC 3161 timestamp request generation
-* Timestamp response verification
-* Cryptographic validation workflows
-
-In certain Windows environments, OpenSSL execution may be affected by local system configuration, security policies, or permission restrictions.
-
-If timestamp-related functions do not operate correctly, users should verify that OpenSSL is available and functioning properly.
-
-The bundled version can be checked by running, from the installation directory:
-
-```text
-bin\openssl.exe version
-```
-
-If version information is returned, the OpenSSL prerequisite is available and operational.
+See [Troubleshooting](#troubleshooting) below if timestamp-related functions do not work as expected.
 
 ---
 
@@ -177,7 +186,7 @@ Generated records may include:
 * RFC 3161 timestamp response tokens
 * Verification reports
 * Evidence manifests
-* Chain of custody / sealing records
+* Integrity chain / sealing records
 * Integrity reports (chain fingerprint)
 * Sealed evidence archives
 
@@ -217,7 +226,7 @@ The transmitted digest is computationally non-reversible and cannot be used to r
 
 # Timestamp Authority
 
-Current provider:
+Current default provider:
 
 * Sectigo RFC 3161 Timestamp Authority
 
@@ -264,7 +273,7 @@ Third parties may verify:
 * Timestamp token validity
 * Timestamp authenticity
 * Evidence package consistency
-* Chain of custody / sealing documentation
+* Integrity chain / sealing documentation
 
 using publicly available cryptographic tools (e.g. OpenSSL) and RFC 3161-compatible verification methods, without depending on IntelChain itself.
 
@@ -307,6 +316,20 @@ IntelChain Community v1.1
 ```
 
 The release package includes the installer, the browser extension, the user guide (FR/EN), and supporting documentation (README, CHANGELOG, LICENSE).
+
+---
+
+# Troubleshooting
+
+**RFC 3161 / OpenSSL issues.** IntelChain bundles the OpenSSL components required for timestamping (digest processing, timestamp request generation, response verification). In certain Windows environments, OpenSSL execution may be affected by local system configuration, security policies, or permission restrictions.
+
+If timestamp-related functions do not operate correctly, check that OpenSSL is available and functioning by running, from the installation directory:
+
+```text
+bin\openssl.exe version
+```
+
+If version information is returned, the OpenSSL prerequisite is available and operational.
 
 ---
 
