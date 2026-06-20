@@ -342,6 +342,6 @@ Users remain responsible for complying with applicable laws, investigative stand
 
 **IntelChain Community • Intel Unit Consulting**
 
-[intelunitconsulting.com/intelchain](https://intelunitconsulting.com/intelchain/) • contact@intelunitconsulting.com
+[intelunitconsulting.com/intelchain](https://intelunitconsulting.com/intelchain/) • https://intelunitconsulting.com/contact/
 
 </div>
