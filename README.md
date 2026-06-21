@@ -93,22 +93,6 @@ The guide explains, in plain language:
 
 ---
 
-# Screenshots
-
-<div align="center">
-
-| Application | Browser Extension |
-|---|---|
-| <img src="docs/screenshots/intelchain-gui.png" width="380" alt="IntelChain Community interface"> | <img src="docs/screenshots/intelchain-extension.png" width="380" alt="IntelChain Capture browser extension"> |
-| **Generated Evidence Package** | **Verification** |
-| <img src="docs/screenshots/intelchain-package.png" width="380" alt="Generated evidence package contents"> | <img src="docs/screenshots/intelchain-verify.png" width="380" alt="Forensic verification result"> |
-
-</div>
-
-> Screenshots are illustrative. The application interface and generated package structure may evolve between releases.
-
----
-
 # Community Edition
 
 IntelChain Community provides a lightweight environment for evidence preservation workflows while maintaining complete local control over processed evidence.
